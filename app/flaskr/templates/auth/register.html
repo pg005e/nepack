@@ -1,0 +1,61 @@
+{% extends 'index.html' %}
+{% block title %} {{ title }} {% endblock %}
+
+{% block content %}
+    <h1 style="text-align:center;">Registration</h1>
+    <div class="content-section">
+        <form action="" method="post">
+            {{ form.hidden_tag() }}
+            <fieldset class="form-group">
+                <div class="form-group">
+                    {{ form.username.label() }}
+                    {{ form.username() }}
+                    {% if form.username.errors %}        
+                        {% for errors in form.username.errors %}
+                            <p><span style="color: red;">{{ errors }}</span></p>
+                        {% endfor %}
+                    {% endif %}
+                </div>
+
+                <div class="form-group">
+                    {{ form.email.label() }}
+                    {{ form.email() }}
+                    {% if form.email.errors %}        
+                        {% for errors in form.email.errors %}
+                            <p><span style="color: red;">{{ errors }}</span></p>
+                        {% endfor %}
+                    {% endif %}
+                </div>
+
+                <div class="form-group">
+                    {{ form.password.label() }}
+                    {{ form.password() }}
+                    {% if form.password.errors %}        
+                        {% for errors in form.password.errors %}
+                            <p><span style="color: red;">{{ errors }}</span></p>
+                        {% endfor %}
+                    {% endif %}
+                </div>
+
+                <div class="form-group">
+                    {{ form.confirm_password.label() }}
+                    {{ form.confirm_password() }}
+                    {% if form.confirm_password.errors %}        
+                        {% for error in form.confirm_password.errors %}
+                            <p><span style="color: red;">{{ errors }}</span></p>
+                        {% endfor %}
+                    {% endif %}
+                </div>
+            </fieldset>
+            <div class="form-group">
+                {{ form.submit(class='btn btn-primary') }}
+            </div>
+        </form>
+
+        <div class="form-group">
+            <small>
+                Already have an account? <a href="{{ url_for('auth.login') }}"> Sign In</a>
+            </small>
+        </div>
+    </div>
+{% endblock %}

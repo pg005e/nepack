@@ -1,0 +1,17 @@
+.content-section {
+    padding: 25px 50px;
+}
+
+.form-group {
+    padding: 15px 10px;
+}
+
+.success {
+    color: green;
+    font-weight: bold;
+}
+
+.error {
+    color: red;
+    font-weight: bold;
+}

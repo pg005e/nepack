@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" name="viewport" content="initial-scale=1, width=device-width" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <title>
+      {% block title %}
+        nepack
+      {% endblock %}
+    </title>
+  <head>
+  <body>
+      {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+          {% for category, message in messages %}
+            {{ message }}
+          {% endfor %}
+        {% endif %}
+      {% endwith %}
+
+      <main>
+        {% block content %}
+          <h2>Home Page</h2>
+        {% endblock %}
+      </main>
+  </body>
+</html>

@@ -1,0 +1,6 @@
+nepenv/Include/
+nepenv/Lib/
+nepenv/Scripts/
+app/.vscode/
+app/instance/
+app/migrations/

@@ -1,0 +1,44 @@
+{% extends 'index.html' %}
+{% block title %} {{ title }} {% endblock %}
+
+{% block content %}
+    <h1 style="text-align:center;">Login</h1>
+    <div class="content-section">
+        <form action="" method="post">
+            {{ form.hidden_tag() }}
+            <fieldset class="form-group">
+                <div class="form-group">
+                    {{ form.email.label() }}
+                    {{ form.email() }}
+                    {% if form.email.errors %}        
+                        {% for errors in form.email.errors %}
+                            <p><span style="color: red;">{{ errors }}</span></p>
+                        {% endfor %}
+                    {% endif %}
+                </div>
+
+                <div class="form-group">
+                    {{ form.password.label() }}
+                    {{ form.password() }}
+                    {% if form.password.errors %}        
+                        {% for errors in form.password.errors %}
+                            <p><span style="color: red;">{{ errors }}</span></p>
+                        {% endfor %}
+                    {% endif %}
+                </div>
+            </fieldset>
+            <div class="form-group">
+                {{ form.submit(class='btn btn-primary') }}
+            </div>
+            <small class="form-group">
+                <a href="#">Forgot Password?</a>
+            </small>
+        </form>
+
+        <div class="form-group">
+            <small class="text-muted">
+                Need an account? <a href="{{ url_for('auth.register') }}"> Sign Up</a>
+            </small>
+        </div>
+    </div>
+{% endblock %}
