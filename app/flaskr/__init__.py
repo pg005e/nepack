@@ -1,20 +1,21 @@
 from flask import Flask, render_template
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
+from flask_login import LoginManager
 import os
 
 db = SQLAlchemy()
 migrate = Migrate()
+login_manager = LoginManager()
 
 # fix hardcode imports of SECRET_KEY and SQLALCHEMY_DATABASE_URI, use .env
+
+
 def create_app(test_config=None):
     app = Flask(__name__, instance_relative_config=True)
-    app.config.from_mapping(
-        SECRET_KEY='7b2faae80533697541606541a6922fb1',
-        SQLALCHEMY_DATABASE_URI='sqlite:///site.db'
-    )
 
-    # if test_config is not passed and exists in 'instance_folder', load it
+    # if test_config is not passed and exists in 'instance_folder', load it 
+    # `config.py` is the config file
     if test_config is None:
         app.config.from_pyfile('config.py', silent=True)
     else:
@@ -29,6 +30,7 @@ def create_app(test_config=None):
 
     db.init_app(app=app)
     migrate.init_app(app=app, db=db)
+    login_manager.init_app(app=app)
 
     from . import models
     from . import auth

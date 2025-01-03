@@ -1,6 +1,7 @@
 nepenv/Include/
 nepenv/Lib/
 nepenv/Scripts/
-app/.vscode/
+.vscode/
 app/instance/
 app/migrations/
+__pycache__/

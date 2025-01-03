@@ -1,6 +1,7 @@
 from flask_sqlalchemy import SQLAlchemy
+from flask_login import UserMixin
 from sqlalchemy import CheckConstraint
-from . import db
+from . import db, login_manager
 
 class Capital(db.Model):
     __tablename__ = 'capital'
@@ -14,7 +15,12 @@ class Capital(db.Model):
         return f"Name: {self.name}, Id: {self.identifier}"
 
 
-class User(db.Model):
+@login_manager.user_loader
+def load_user(user_id):
+    return User.query.get(int(user_id)) 
+
+
+class User(db.Model, UserMixin):
     __tablename__ = 'user'
 
     id = db.Column(db.Integer, primary_key=True)

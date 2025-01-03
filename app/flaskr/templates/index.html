@@ -20,7 +20,19 @@
 
       <main>
         {% block content %}
-          <h2>Home Page</h2>
+          <h1 style="text-align:center;">Home</h1>
+
+          <div class="main-content">
+            <div class="content-section">
+              <p>Do you have multiple MeroShare accounts and want to view them all at the same place?</p>
+              <p>If so, <i>nepack</i> is for you!</p>
+            </div>
+
+            <div class="content-section">
+              <p>To get started, <i><a href="{{ url_for('auth.register') }}"> register here!</a></i></p>
+              <p>Already have an account? <i><a href="{{ url_for('auth.login') }}"> login here!</a></i></p>
+            </div>
+          </div>
         {% endblock %}
       </main>
   </body>
