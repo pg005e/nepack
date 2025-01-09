@@ -13,9 +13,11 @@ main {
 .success {
     color: green;
     font-weight: bold;
+    text-align: center;
 }
 
 .error {
     color: red;
     font-weight: bold;
+    text-align: center;
 }
