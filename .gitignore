@@ -1,6 +1,11 @@
 nepenv/Include/
 nepenv/Lib/
 nepenv/Scripts/
+nepenv/pyvenv.cfg
+nepenv/bin/
+nepenv/include/
+nepenv/lib/
+nepenv/lib64
 .vscode/
 app/instance/
 app/migrations/
